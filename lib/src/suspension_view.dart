@@ -20,13 +20,13 @@ class SuspensionView extends StatefulWidget {
     this.susPosition,
     this.physics,
     this.padding,
-    this.showSticky
+    this.showSticky = false
   }) : super(key: key);
 
   /// Suspension data.
   final List<ISuspensionBean> data;
 
-  final bool showSticky = false;
+  final bool showSticky ;
 
   /// Number of items the [itemBuilder] can produce.
   final int itemCount;
