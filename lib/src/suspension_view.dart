@@ -7,6 +7,7 @@ const double kSusItemHeight = 40;
 
 /// SuspensionView.
 class SuspensionView extends StatefulWidget {
+  
   SuspensionView({
     Key? key,
     required this.data,
@@ -19,10 +20,13 @@ class SuspensionView extends StatefulWidget {
     this.susPosition,
     this.physics,
     this.padding,
+    this.showSticky
   }) : super(key: key);
 
   /// Suspension data.
   final List<ISuspensionBean> data;
+
+  final bool showSticky = false;
 
   /// Number of items the [itemBuilder] can produce.
   final int itemCount;
@@ -148,7 +152,7 @@ class _SuspensionViewState extends State<SuspensionView> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        widget.itemCount == 0
+        widget.itemCount == 0 || widget.showSticky == true
             ? Container()
             : ScrollablePositionedList.builder(
                 itemCount: widget.itemCount,
